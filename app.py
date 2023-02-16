@@ -20,8 +20,6 @@ driver = webdriver.Chrome()
 url = 'https://www.google.com/maps/place/Air+Terjun+Sedudo/@-7.7814262,111.7576068,17z/data=!3m1!4b1!4m6!3m5!1s0x2e79adf9c70ffff9:0xe17436693e56eab7!8m2!3d-7.7814262!4d111.7576068!16s%2Fg%2F11b_2y2c5y'
 driver.get(url)
 
-time.sleep(3)
-
 # Melakukan klik element "Ulasan Lainnya"
 # element = driver.find_element(By.XPATH, '/html/body/div[3]/div[9]/div[9]/div/div/div[1]/div[2]/div/div[1]/div/div/div[59]/div/button/span')
 element = driver.find_element(By.XPATH, '/html/body/div[3]/div[9]/div[9]/div/div/div[1]/div[2]/div/div[1]/div/div/div[57]/div/button/span')
@@ -42,7 +40,7 @@ while True:
                         .until(expected_conditions.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[9]/div[9]/div/div/div[1]/div[2]/div/div[1]/div/div/div[2]'))))
 
     # Wait to load the page.
-    time.sleep(1)
+    time.sleep(2)
 
     # Calculate new scroll height and compare with last scroll height.
     new_height = driver.execute_script("return arguments[0].scrollHeight", WebDriverWait(driver, 5,ignored_exceptions=ignored_exceptions)\
@@ -51,7 +49,7 @@ while True:
     if new_height == last_height:
         if attempts >= 0:
             print("Trying again..", attempts)
-            time.sleep(3)
+            time.sleep(10)
             new_height = driver.execute_script("return arguments[0].scrollHeight", WebDriverWait(driver, 5,ignored_exceptions=ignored_exceptions)\
                         .until(expected_conditions.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[9]/div[9]/div/div/div[1]/div[2]/div/div[1]/div/div/div[2]'))))
             attempts = attempts - 1
