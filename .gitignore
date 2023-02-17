@@ -2,3 +2,4 @@ venv/
 testing.py
 final_dataset.csv
 chromedriver.exe
+chromedriver
