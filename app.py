@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Import library
 import csv
 from selenium import webdriver
